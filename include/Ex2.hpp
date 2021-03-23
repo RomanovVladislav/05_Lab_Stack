@@ -2,9 +2,10 @@
 // Created by vlad on 16.03.2021.
 //
 
-#ifndef INC_05_LAB_STACK_EX2_HPP
-#define INC_05_LAB_STACK_EX2_HPP
+#ifndef INCLUDE_EX2_HPP_
+#define INCLUDE_EX2_HPP_
 
+#include <utility>
 #include <iostream>
 #include "Ex1.hpp"
 
@@ -13,7 +14,7 @@ template <typename T>
 class UncopyableStack
 {
  public:
-  UncopyableStack() : element_top(nullptr) {};
+  UncopyableStack() : element_top(nullptr) {}
   UncopyableStack(const UncopyableStack& UncopyableStack) = delete;
   UncopyableStack(UncopyableStack&& UncopyableStack) = default;
   UncopyableStack &operator=(const UncopyableStack& UncopyableStack) = delete;
@@ -58,7 +59,6 @@ class UncopyableStack
 
  private:
   node<T> *element_top;
-
 };
 
-#endif  // INC_05_LAB_STACK_EX2_HPP
+#endif  // INCLUDE_EX2_HPP_

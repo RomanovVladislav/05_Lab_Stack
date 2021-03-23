@@ -5,14 +5,7 @@
 #include "Ex1.hpp"
 #include "Ex2.hpp"
 
-TEST(Example, first_test)
-{
-  Stack<int> first;
-  first.push(7);
-  EXPECT_EQ(first.head(), 7);
-}
-
-TEST(stack, push_lvalue)
+TEST(Stack, push_lvalue)
 {
   Stack<unsigned> buffer;
   EXPECT_THROW(buffer.head(), std::runtime_error);
@@ -25,7 +18,7 @@ TEST(stack, push_lvalue)
   EXPECT_EQ(buffer.head(),value_3);
 }
 
-TEST(stack, push_rvalue)
+TEST(Stack, push_rvalue)
 {
   Stack<unsigned> buffer;
   EXPECT_THROW(buffer.head(), std::runtime_error);
@@ -37,7 +30,7 @@ TEST(stack, push_rvalue)
   EXPECT_EQ(buffer.head(),10);
 }
 
-TEST(stack, test_pop)
+TEST(Stack, test_pop)
 {
   Stack<unsigned> buffer;
   EXPECT_THROW(buffer.pop(), std::runtime_error);
@@ -55,7 +48,7 @@ TEST(stack, test_pop)
   EXPECT_THROW(buffer.head(),std::runtime_error);
 }
 
-TEST(stack, test_head)
+TEST(Stack, test_head)
 {
   Stack<unsigned> buffer;
   EXPECT_THROW(buffer.head(), std::runtime_error);
@@ -77,7 +70,7 @@ struct big_data
   T value_3;
 };
 
-TEST(stack, push_rvalue_string)
+TEST(Stack, push_rvalue_string)
 {
   big_data<std::string> buffer_1;
   buffer_1.value_1 = "dog";
@@ -90,7 +83,7 @@ TEST(stack, push_rvalue_string)
   EXPECT_EQ(buffer_2.head().value_3, buffer_1.value_3);
 }
 
-TEST(stack, test_move)
+TEST(Stack, test_move)
 {
   EXPECT_EQ(std::is_move_constructible<Stack<unsigned>>::value, true);
   EXPECT_EQ(std::is_move_assignable<Stack<unsigned>>::value, true);
@@ -100,7 +93,7 @@ TEST(stack, test_move)
                   <Stack<big_data<std::string>>>::value);
 }
 
-TEST(stack, test_copy)
+TEST(Stack, test_copy)
 {
   EXPECT_FALSE(std::is_copy_constructible<Stack<unsigned>>::value);
   EXPECT_FALSE(std::is_copy_assignable<Stack<unsigned>>::value);
@@ -139,7 +132,7 @@ TEST(big_data_no_copy, test_check)
       <big_data_no_copy<unsigned>>::value);
 }
 
-TEST(no_copy_stack, test_push_head)
+TEST(UncopyableStack, test_push_head)
 {
   UncopyableStack<int> buffer_2;
   EXPECT_THROW(buffer_2.head(), std::runtime_error);
@@ -155,7 +148,7 @@ TEST(no_copy_stack, test_push_head)
   EXPECT_EQ(buf.head().value_1, test_3.value_1);
 }
 
-TEST(no_copy_stack, test_pop_head)
+TEST(UncopyableStack, test_pop_head)
 {
   UncopyableStack<int> buffer_2;
   EXPECT_THROW(buffer_2.head(), std::runtime_error);
@@ -188,7 +181,7 @@ TEST(no_copy_stack, test_push_emplace_head)
   EXPECT_EQ(buf.head().value_1, test_3.value_1);
 }
 
-TEST(no_copy_stack, test_move)
+TEST(UncopyableStack, test_move)
 {
   EXPECT_EQ(std::is_move_constructible
       <UncopyableStack<unsigned>>::value, true);
@@ -204,7 +197,7 @@ TEST(no_copy_stack, test_move)
       <UncopyableStack<big_data_no_copy<unsigned>>>::value);
 }
 
-TEST(no_copy_stack, test_copy)
+TEST(UncopyableStack, test_copy)
 {
   EXPECT_FALSE(std::is_copy_constructible
       <UncopyableStack<unsigned>>::value);

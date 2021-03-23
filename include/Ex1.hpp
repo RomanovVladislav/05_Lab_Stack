@@ -2,8 +2,8 @@
 // Created by vlad on 16.03.2021.
 //
 
-#ifndef INC_05_LAB_STACK_EX1_HPP
-#define INC_05_LAB_STACK_EX1_HPP
+#ifndef INCLUDE_EX1_HPP_
+#define INCLUDE_EX1_HPP_
 
 #include <iostream>
 
@@ -18,7 +18,7 @@ template <typename T>
 class Stack
 {
  public:
-  Stack() : element_top(nullptr) {};
+  Stack() : element_top(nullptr) {}
   Stack(const Stack& stack) = delete;
   Stack(Stack&& stack) = default;
   Stack &operator=(const Stack& stack) = delete;
@@ -72,4 +72,4 @@ class Stack
   node<T> *element_top;
 };
 
-#endif  // INC_05_LAB_STACK_EX1_HPP
+#endif  // INCLUDE_EX1_HPP_

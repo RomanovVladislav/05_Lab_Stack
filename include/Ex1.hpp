@@ -1,6 +1,4 @@
-//
-// Created by vlad on 16.03.2021.
-//
+// Copyright 2021 RomanovVladislav
 
 #ifndef INCLUDE_EX1_HPP_
 #define INCLUDE_EX1_HPP_

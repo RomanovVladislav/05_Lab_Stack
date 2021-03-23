@@ -19,10 +19,10 @@ class Stack
 {
  public:
   Stack() : element_top(nullptr) {};
-  Stack(const Stack& stack) = delete; // конструктор копирования (запрещен)
-  Stack(Stack&& stack) = default; // конструктор перемещения
-  Stack &operator=(const Stack& stack) = delete; //перегрузка копирования
-  Stack &operator=(Stack && stack)  = default; //перегрузка перемещения
+  Stack(const Stack& stack) = delete;
+  Stack(Stack&& stack) = default;
+  Stack &operator=(const Stack& stack) = delete;
+  Stack &operator=(Stack && stack)  = default;
 
   void push(T&& value)
   {
